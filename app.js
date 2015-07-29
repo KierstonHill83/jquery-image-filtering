@@ -7,14 +7,6 @@ $(".image-container").append('<article class="home" data-price="55000")"><img sr
 
 $(".image-container").append('<article class="home" data-price="175000")"><img src="img/five.jpg"><h4>$175,000</h4></article>');
 
-$(".textures").append('<span class="forest"></span>')
-});
-
-$(".forest").css({
-  'border-radius' : '50%',
-  'background-image' : 'url(img/forest.jpg)'
-  });
-
  $(".dark").on("click", function(){
   $( "body" ).css({
    'background-image': 'url(img/dark_wood.png)'
@@ -29,6 +21,24 @@ $(".light").on("click", function(){
 });
 
 
+$(".textures").append('<span class="forest"></span>');
+
+$(".textures").css("width", "180px");
+
+$('.forest').css({
+  'border-radius' : '50%',
+  'background' : 'url(img/forest.jpg)'
+});
+
+$(".forest").on("click", function() {
+  $("body").css("background", "url(img/forest.jpg");
+});
+
+
+});
+
+
+
 
 
 
@@ -38,7 +48,7 @@ $(".light").on("click", function(){
 // $('#newHouse')
 // });
 
-// });
+
 
 
 

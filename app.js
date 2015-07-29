@@ -33,10 +33,16 @@ $('.forest').css({
 $(".forest").on("click", function() {
   $("body").css("background", "url(img/forest.jpg");
 });
+function highToLow () {
+  var newArray=[];
 
+}
+for (var i = 0; i < $(".home").length; i++) {
+  var dataPrices = [];
+  console.log($($(".home")[i]).data("price"));
+}
 
 });
-
 
 
 

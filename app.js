@@ -33,16 +33,71 @@ $('.forest').css({
 $(".forest").on("click", function() {
   $("body").css("background", "url(img/forest.jpg");
 });
-function highToLow () {
-  var newArray=[];
 
+
+// function sortCabins () {
+
+// //assign variable to an empty array aka: literal array
+// //loop start at  0, end at the length of the cabins, and increment by 1
+// // while (cabins.length) {
+// //   cabins.splice(0, cabins.length);
+
+// // }
+
+//   // for(var i = 0; i < cabins.length; i++) {
+//   //   sortedCabins = cabins[i];
+//   //   console.log(sortedCabins);
+//   // }
+// }
+
+
+// setting cabins = to the home array
+//assign variable to call jquery on the home class
+var cabins = $('.home');
+
+function sortedCabins (a,b){
+  var aPrice = parseInt(a.dataset.price);
+  var bPrice = parseInt(b.dataset.price);
+  //if it is greater than 0, b comes first
+  if (aPrice > bPrice) {
+      return 1;
+  }
+  //if it is less than 0, a comes first
+  if (aPrice < bPrice) {
+      return -1;
+  }
+  //if it is 0, a and b are unchanged but sorted with respect to all diff elements
+  else {
+      return 0;
+  }
 }
-for (var i = 0; i < $(".home").length; i++) {
-  var dataPrices = [];
-  console.log($($(".home")[i]).data("price"));
-}
+
+cabins.sort(sortedCabins);
+
+
+
+
+// function highToLow () {
+
+//   for (var i = 0; i < $(".home").length; i++) {
+//   }
+// }
+
+
+//   console.log($($(".home")[i]).data("price"));
+
+
+
+
+
+
+
+
+
 
 });
+
+
 
 
 

@@ -35,56 +35,52 @@ $(".forest").on("click", function() {
 });
 
 
-// function sortCabins () {
-
-// //assign variable to an empty array aka: literal array
-// //loop start at  0, end at the length of the cabins, and increment by 1
-// // while (cabins.length) {
-// //   cabins.splice(0, cabins.length);
-
-// // }
-
-//   // for(var i = 0; i < cabins.length; i++) {
-//   //   sortedCabins = cabins[i];
-//   //   console.log(sortedCabins);
-//   // }
-// }
-
-
 // setting cabins = to the home array
 //assign variable to call jquery on the home class
 var cabins = $('.home');
-
-function sortedCabins (a,b){
-  var aPrice = parseInt(a.dataset.price);
-  var bPrice = parseInt(b.dataset.price);
-  //if it is greater than 0, b comes first
-  if (aPrice > bPrice) {
-      return 1;
+  function sortedCabins (a,b){
+    var aPrice = parseInt(a.dataset.price);
+    var bPrice = parseInt(b.dataset.price);
+    //if it is greater than 0, b comes first
+    if (aPrice > bPrice) {
+        return 1;
+    }
+    //if it is less than 0, a comes first
+    if (aPrice < bPrice) {
+        return -1;
+    }
+    //if it is 0, a and b are unchanged but sorted with respect to all diff elements
+    else {
+        return 0;
+    }
   }
-  //if it is less than 0, a comes first
-  if (aPrice < bPrice) {
-      return -1;
+
+$(".low").on("click", function() {
+  $(".image-container").append(cabins.sort(sortedCabins));
+});
+
+
+ function sortedCabins2 (a,b){
+    var aPrice = parseInt(a.dataset.price);
+    var bPrice = parseInt(b.dataset.price);
+    //if it is greater than 0, b comes first
+    if (aPrice < bPrice) {
+        return 1;
+    }
+    //if it is less than 0, a comes first
+    if (aPrice > bPrice) {
+        return -1;
+    }
+    //if it is 0, a and b are unchanged but sorted with respect to all diff elements
+    else {
+        return 0;
+    }
   }
-  //if it is 0, a and b are unchanged but sorted with respect to all diff elements
-  else {
-      return 0;
-  }
-}
 
-cabins.sort(sortedCabins);
+$(".high").on("click", function() {
+  $(".image-container").append(cabins.sort(sortedCabins2));
+});
 
-
-
-
-// function highToLow () {
-
-//   for (var i = 0; i < $(".home").length; i++) {
-//   }
-// }
-
-
-//   console.log($($(".home")[i]).data("price"));
 
 
 
@@ -111,10 +107,3 @@ cabins.sort(sortedCabins);
 
 
 
-
-
-
-// .css({
-//   'width': '150px',
-//   'height': '150px'
-//   });

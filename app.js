@@ -83,15 +83,72 @@ $(".high").on("click", function() {
 
 
 
+$("input:checkbox").on("click", function() {
+  var domValues = [];
+  $(".image-container article").each(function(i, article){
+    domValues.push($(article).data("price"));
+  });
+  console.log(domValues);
+
+  var upperLimit = parseInt($(this).val());
+  console.log(upperLimit);
+
+  //won't pull in upperlimit
+  var range = getRanges(upperLimit);
+  console.log(range);
+
+  var rangeOnScreen = getValues(range, domValues);
+  console.log(rangeOnScreen);
+
+//want to append the article on the screen, not just the value. reverse what I did to get the value??
+  $(".image-container article").hide();
+  var index = [];
+    for (var i = 0; i < rangeOnScreen.length; i++) {
+      // var output = $("image-container").find();
+      index = rangeOnScreen[i];
+      var output = $(".image-container article").filter(function(i, article) {
+        if(parseInt(article.dataset.price) === index) {
+          return true;
+        } else {
+          return false;
+        }
+    });
+     output.show();
+}
 
 
 
+function getRanges(num){
+  switch (num) {
+    case 50000:
+      return [0, 50000];
+    case 100000:
+      return [50000, 100000];
+    case 200000:
+      return [100000, 200000];
+    case 300000:
+      return [200000, 300000];
+    case 500000:
+      return [300000, 500000];
+    case 1000000:
+      return [500000, 1000000];
+  }
+}
 
-
-
-
+function getValues(rangeArr, domArr) {
+  var newArr = [];
+  for(var i = 0; i < domArr.length; i++) {
+    if (domArr[i] >= rangeArr[0] && domArr[i] <= rangeArr[1]) {
+      newArr.push(domArr[i]);
+    }
+  }
+  return newArr;
+}
 
 });
+
+});
+
 
 
 
